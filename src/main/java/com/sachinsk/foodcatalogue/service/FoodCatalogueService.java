@@ -34,10 +34,18 @@ public class FoodCatalogueService {
         //restaurant details
         Restaurant restaurantDTO = fetchRestaurantDetailsFromRestaurantMS(restaurantId);
 
-        createFoodCataloguePage(foodItemList, restaurantDTO);
+        FoodCataloguePage resultFoodCataloguePage = createFoodCataloguePage(foodItemList, restaurantDTO);
+        return resultFoodCataloguePage;
     }
 
-    private void createFoodCataloguePage(List<FoodItem> foodItemList, Restaurant restaurantDTO) {
+    private FoodCataloguePage createFoodCataloguePage(List<FoodItem> foodItemList, Restaurant restaurant) {
+
+        FoodCataloguePage foodCataloguePage = new FoodCataloguePage();
+        foodCataloguePage.setFoodItemList(foodItemList);
+        foodCataloguePage.setRestaurant(restaurant);
+
+        return foodCataloguePage;
+
     }
 
     private Restaurant fetchRestaurantDetailsFromRestaurantMS(Integer restaurantId) {
