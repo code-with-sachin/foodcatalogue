@@ -37,9 +37,11 @@ public class FoodCatalogueService {
     }
 
     private Restaurant fetchRestaurantDetailsFromRestaurantMS(Integer restaurantId) {
+        //We need RestTemplate to fetch the details from another microservice
     }
 
     private List<FoodItem> fetchFoodItemList(Integer restaurantId) {
-        return foodItemRepo.findByRestaurantId(restaurantId);
+        List<FoodItem> foodItemListById = foodItemRepo.findByRestaurantId(restaurantId);
+        return foodItemListById;
     }
 }
