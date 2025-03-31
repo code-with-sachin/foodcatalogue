@@ -22,7 +22,7 @@ public class FoodCatalogueController {
     }
 
     @GetMapping("/fetchRestaurantAndFoodItemsById/{id}")
-    public ResponseEntity<FoodCataloguePage> fetchRestaurantDetailsWithFoodMenu(@PathVariable Integer restaurantId) {
+    public ResponseEntity<FoodCataloguePage> fetchRestaurantDetailsWithFoodMenu(@PathVariable(value = "id") Integer restaurantId) {
         FoodCataloguePage fetchedFoodCataloguePage = foodCatalogueService.fetchFoodCataloguePageDetails(restaurantId);
         if (fetchedFoodCataloguePage != null) {
             return new ResponseEntity<>(fetchedFoodCataloguePage, HttpStatus.OK);

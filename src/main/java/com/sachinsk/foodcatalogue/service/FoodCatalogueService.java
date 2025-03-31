@@ -52,7 +52,8 @@ public class FoodCatalogueService {
 
         //We need RestTemplate to fetch the details from another microservice
        // Note: we will be referring the restaurant listing service's control to find which method returns the details by ID -> in our case is "/fetchById/{id}"
-        Restaurant restaurant = restTemplate.getForObject("http://RESTAURANT-SERVICE/fetchById/" +restaurantId, Restaurant.class);
+        Restaurant restaurant = restTemplate.getForObject("http://RESTAURANT-SERVICE/restaurant/fetchById/" +restaurantId, Restaurant.class);
+
         return restaurant;
 
     }
